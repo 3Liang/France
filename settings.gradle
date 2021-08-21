@@ -1,0 +1,3 @@
+include ':smartcropperlib'
+include ':app'
+rootProject.name = "Franch"

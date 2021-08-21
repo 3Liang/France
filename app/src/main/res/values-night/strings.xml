@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_username_or_password">用户名或密码为空</string>
+    <string name="logining">登录中...</string>
+    <string name="password_not_matched">前后密码不一致</string>
+    <string name="i_want_deliver">我要发货</string>
+    <string name="select_all">全选</string>
+    <string name="submit">提交</string>
+    <string name="total_amount_x">总金额:%.2f</string>
+    <string name="please_select_at_least_one_goods">请至少选择一件商品</string>
+    <string name="received_already">已收款</string>
+    <string name="foreign_exchanging">外汇兑换中</string>
+    <string name="center_transferring">消费中心转账中</string>
+    <string name="bank_transferring">法国银行转账中</string>
+    <string name="card_delivering">卡额分配中</string>
+    <string name="in_account">"到账 "</string>
+    <string name="availableAmount">可用余额（元）</string>
+    <string name="total_available_amount_x">总余额:%.2f</string>
+    <string name="fill_receipt">出关单填写信息</string>
+    <string name="receipt_not_uploaded">未上传发票</string>
+    <string name="verifying_receipt">待审核</string>
+    <string name="receipt_passed">发票审核通过</string>
+    <string name="receipt_unpassed">发票审核未通过</string>
+    <string name="submit_successfully">提交成功</string>
+    <string name="submit_unsuccessfully">提交失败</string>
+    <string name="verification_passed">审核通过</string>
+    <string name="verification_unpassed">暂无报关单</string>
+    <string name="view_form">查看出关单</string>
+    <string name="form_info">出关单信息</string>
+    <string name="upload_successfully">上传成功</string>
+    <string name="uploading">上传中</string>
+    <string name="receiving_amount">收款金额</string>
+    <string name="set_amount">设置金额</string>
+    <string name="standard_amount">%.2f</string>
+</resources>

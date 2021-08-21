@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.wang.franch.bean.Goods" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fr_item_back"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvGoodsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@{item.number}"
+            android:textColor="@color/color_727272"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="6111209001200306" />
+
+        <TextView
+            android:id="@+id/tvGoodsNumberRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@{item.customHouse}"
+            android:textColor="@color/color_979797"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvGoodsNumber"
+            tools:text="HS CODE:61112090" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/separate_line_height"
+            android:layout_marginTop="10dp"
+            android:background="@color/separate_line_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvGoodsNumber" />
+
+        <TextView
+            android:id="@+id/tvGoodsName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{item.name}"
+            android:textColor="@color/color_262626"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/tvGoodsNumberRight"
+            app:layout_constraintStart_toStartOf="@id/tvGoodsNumber"
+            app:layout_constraintTop_toBottomOf="@id/viewLine"
+            tools:text="Kit de Vêtements et accessoires" />
+
+        <TextView
+            android:id="@+id/tvGoodsPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text='@{item.price+""}'
+            android:textColor="@color/color_009788"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvGoodsNumber"
+            app:layout_constraintTop_toBottomOf="@id/tvGoodsName"
+            tools:text="666.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

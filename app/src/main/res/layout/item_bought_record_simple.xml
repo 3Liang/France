@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.wang.franch.helper.StringHelper" />
+
+        <variable
+            name="item"
+            type="com.wang.franch.bean.BoughtRecord" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp">
+
+        <TextView
+            android:id="@+id/tvCost"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{StringHelper.INSTANCE.standardAmount(context,item.montantTTC)}'
+            android:textColor="@color/color_009788"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="-1000" />
+
+        <com.wang.franch.widget.MarqueeTextView
+            android:id="@+id/tvTitle"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="@{item.cooperativeSimpleName}"
+            app:layout_constraintEnd_toStartOf="@id/tvCost"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Printemps Haussm" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{item.dateDeDepense}"
+            android:textColor="@color/color_acacac"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="2020-04-12 14:30" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/separate_line_height"
+            android:layout_marginTop="10dp"
+            android:background="@color/separate_line_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTime" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

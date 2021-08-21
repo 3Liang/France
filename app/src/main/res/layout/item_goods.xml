@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.wang.franch.helper.TimeHelper" />
+
+        <import type="com.wang.franch.helper.StringHelper" />
+
+        <variable
+            name="item"
+            type="com.wang.franch.bean.Goods" />
+
+        <variable
+            name="selected"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="activity"
+            type="com.wang.franch.ui.ActivityDeliverGoods" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->activity.handleItemClick(item,position)}"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/ivSelectStatus"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@{selected?@drawable/fr_radiobutton_selected:@drawable/fr_radiobutton_unselected}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvGoodsName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@{item.name}"
+            android:textColor="@color/color_262626"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSelectStatus"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Kit de Vêtements et accessoires" />
+
+        <TextView
+            android:id="@+id/tvGoodsPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{StringHelper.INSTANCE.standardAmount(context,item.price)}"
+            android:textColor="@color/color_009788"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/tvGoodsName"
+            app:layout_constraintStart_toStartOf="@id/tvGoodsName"
+            app:layout_constraintTop_toBottomOf="@id/tvGoodsName"
+            tools:text="66666.00" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{TimeHelper.INSTANCE.format(TimeHelper.COMMON_DATE_TIME_FORMAT,item.createTime)}"
+            android:textColor="@color/color_979797"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tvGoodsName"
+            app:layout_constraintTop_toBottomOf="@id/tvGoodsPrice"
+            tools:text="2020-04-06  10:23:45" />
+
+        <TextView
+            android:id="@+id/tvGoodsNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.number}"
+            android:textColor="@color/color_979797"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/tvGoodsName"
+            app:layout_constraintTop_toTopOf="@id/tvDateTime"
+            tools:text="04 2020 0002" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

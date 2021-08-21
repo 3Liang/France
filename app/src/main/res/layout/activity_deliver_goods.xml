@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.wang.franch.helper.StringHelper" />
+
+        <variable
+            name="toolbarInfo"
+            type="com.wang.franch.ToolbarInfo" />
+
+        <variable
+            name="totalAmount"
+            type="Float" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/titleBar"
+            layout="@layout/layout_title_bar"
+            toolbarInfo="@{toolbarInfo}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGoodsList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/viewLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBar" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/separate_line_height"
+            android:layout_marginBottom="18dp"
+            android:background="@color/separate_line_color"
+            app:layout_constraintBottom_toTopOf="@id/cbSelectAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/cbSelectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24sp"
+            android:layout_marginBottom="18dp"
+            android:text="@string/select_all"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@{StringHelper.INSTANCE.totalAmount(context,totalAmount)}"
+            android:textColor="@color/color_262626"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/cbSelectAll"
+            app:layout_constraintEnd_toStartOf="@id/tvSubmit"
+            app:layout_constraintTop_toTopOf="@id/cbSelectAll"
+            tools:text="总金额：66666.00" />
+
+        <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/shape_6_corner_009788_solid"
+            android:gravity="center"
+            android:minWidth="40dp"
+            android:minHeight="26dp"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/cbSelectAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cbSelectAll" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

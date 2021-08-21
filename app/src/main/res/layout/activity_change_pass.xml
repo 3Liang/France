@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="toolbarInfo"
+            type="com.wang.franch.ToolbarInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_f9f9f9">
+
+        <include
+            android:id="@+id/titleBar"
+            layout="@layout/layout_title_bar"
+            toolbarInfo="@{toolbarInfo}" />
+
+        <TextView
+            android:id="@+id/textCurrentPass"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:text="@string/current_login_password"
+            android:textColor="@color/color_262626"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBar" />
+
+        <EditText
+            android:id="@+id/etCurrentPass"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="10dp"
+            android:background="@null"
+            android:gravity="center_vertical|end"
+            android:inputType="textPassword"
+            android:minWidth="100dp"
+            android:textColor="@color/color_333"
+            android:textColorHint="@color/color_979797"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/textCurrentPass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textCurrentPass" />
+
+        <TextView
+            android:id="@+id/textNewPass"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:text="@string/new_password"
+            android:textColor="@color/color_262626"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCurrentPass" />
+
+        <EditText
+            android:id="@+id/etNewPass"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="10dp"
+            android:background="@null"
+            android:gravity="center_vertical|end"
+            android:inputType="textPassword"
+            android:minWidth="100dp"
+            android:textColor="@color/color_333"
+            android:textColorHint="@color/color_979797"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/textNewPass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textNewPass" />
+
+        <View
+            android:id="@+id/lineView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNewPass" />
+
+        <TextView
+            android:id="@+id/textConfirmPass"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:text="@string/confirm_new_password"
+            android:textColor="@color/color_262626"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lineView" />
+
+        <EditText
+            android:id="@+id/etConfirmPass"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="10dp"
+            android:background="@null"
+            android:gravity="center_vertical|end"
+            android:inputType="textPassword"
+            android:minWidth="100dp"
+            android:textColorHint="@color/color_979797"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/textConfirmPass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textConfirmPass" />
+
+        <Button
+            style="@style/NormalButtonStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/shape_6_corner_009788_solid"
+            android:text="@string/confirm"
+            android:onClick="changePass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textConfirmPass" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

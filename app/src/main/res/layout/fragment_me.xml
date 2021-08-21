@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.wang.franch.ui.FragmentMe" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivMeHead"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/fr_me_head"
+            app:layout_constraintBottom_toTopOf="@id/tvUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:textColor="@color/color_262626"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@id/btnChangePass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivMeHead"
+            tools:text="员工" />
+
+        <Button
+            android:id="@+id/btnChangePass"
+            style="@style/NormalButtonStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_6_corner_d3d2d2_stroke"
+            android:onClick="@{()->fragment.changePass()}"
+            android:text="@string/change_password"
+            android:textColor="@color/color_727272"
+            app:layout_constraintBottom_toTopOf="@id/btnExit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+        <Button
+            android:id="@+id/btnExit"
+            style="@style/NormalButtonStyle"
+            android:layout_width="0dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/shape_6_corner_009788_solid"
+            android:onClick="@{()->fragment.logout()}"
+            android:text="@string/exit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/btnChangePass"
+            app:layout_constraintStart_toStartOf="@id/btnChangePass"
+            app:layout_constraintTop_toBottomOf="@id/btnChangePass" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

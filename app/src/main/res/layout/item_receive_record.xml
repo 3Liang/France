@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.wang.franch.helper.StringHelper" />
+
+        <variable
+            name="item"
+            type="com.wang.franch.bean.ReceiveRecord" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="18dp">
+
+        <TextView
+            android:id="@+id/tvIndex"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:background="@color/color_f8f8f8"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="4月共采购：11200"
+            android:textColor="@color/color_999"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4月共采购：11200" />
+
+        <ImageView
+            android:id="@+id/imageCurrency"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/fr_currency_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvIndex" />
+
+        <TextView
+            android:id="@+id/textReceive"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/receive"
+            app:layout_constraintBottom_toTopOf="@id/imageCurrency"
+            app:layout_constraintStart_toEndOf="@id/imageCurrency"
+            app:layout_constraintTop_toTopOf="@id/imageCurrency" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{item.dealTimeFrench}"
+            android:textColor="@color/color_acacac"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageCurrency"
+            app:layout_constraintStart_toStartOf="@id/textReceive"
+            app:layout_constraintTop_toBottomOf="@id/imageCurrency"
+            tools:text="2020-04-12 14:30" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:text="@{StringHelper.INSTANCE.standardAmount(context,item.merchantOrderAmount)}"
+            android:textColor="@color/color_009788"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textReceive"
+            tools:text="1000.00" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{StringHelper.INSTANCE.moneyStatus(context,item.moneyStatus)}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvTime"
+            app:layout_constraintEnd_toEndOf="@id/tvPrice"
+            tools:text="等待审核" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

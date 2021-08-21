@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivAppImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/fr_login_logo"
+            app:layout_constraintBottom_toTopOf="@id/textAppName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textAppName"
+            style="@style/NormalTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_name"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/etUsername"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAppImage" />
+
+        <EditText
+            android:id="@+id/etUsername"
+            style="@style/NormalEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
+            android:hint="@string/login_username_hint"
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textAppName" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            style="@style/NormalEditTextStyle"
+            android:layout_width="0dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/textLoading"
+            app:layout_constraintEnd_toEndOf="@id/etUsername"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toBottomOf="@id/etUsername" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            style="@style/NormalButtonStyle"
+            android:layout_width="0dp"
+            android:layout_marginTop="24dp"
+            android:onClick="confirmLogin"
+            android:text="@string/confirm"
+            app:layout_constraintEnd_toEndOf="@id/etUsername"
+            app:layout_constraintStart_toStartOf="@id/etUsername"
+            app:layout_constraintTop_toTopOf="@id/textLoading" />
+
+        <TextView
+            android:id="@+id/textLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/logining"
+            android:textColor="@color/color_333"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="etUsername,etPassword" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
